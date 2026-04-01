@@ -1,0 +1,15 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+venv/
+env/
+.env
+.idea/
+.vscode/
+
+# Local data / scripts
+hf_papers_results.json
+build_dashboard.py
+scrape_hf_papers.py
+scrape_hf_papers_json.py

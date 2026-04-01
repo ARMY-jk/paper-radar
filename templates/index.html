@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 前沿论文雷达 | 全网热门学术追踪</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">AI 前沿论文雷达</h1>
+            <p class="subtitle">全量抓取 Hugging Face 每日热门论文，自动翻译为中文，一站式追踪全球 AI 前沿研究动态。</p>
+            <div class="header-actions">
+                <div class="updated-chip" id="update-time">后台引擎启动中...</div>
+                <button class="refresh-btn" id="refresh-btn" title="手动刷新抓取">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+                    重新抓取
+                </button>
+            </div>
+        </header>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar" id="filter-bar"></div>
+
+        <!-- Paper Cards Container -->
+        <div class="grid" id="papers-grid">
+            <div class="empty-state">
+                <p>正由后台引擎为您实时抓取并翻译所有热门论文，请稍等片刻...</p>
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget" id="chat-widget">
+        <button class="chat-fab" id="chat-fab">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+            <span class="tooltip">智能论文助手</span>
+        </button>
+
+        <div class="chat-panel" id="chat-panel">
+            <div class="chat-header">
+                <div>
+                    <strong>📖 Robo 库管员</strong>
+                    <div style="font-size: 0.75rem; color: #a5b4fc;">全库智能检索引擎 · 在线</div>
+                </div>
+                <button class="close-btn" id="close-chat">&times;</button>
+            </div>
+            
+            <div class="chat-body" id="chat-body">
+                <div class="message ai">
+                    <strong>你好！</strong>我是您的全库智能检索助手。当前已全量加载 Hugging Face 热门论文。试试问我：<br>
+                    • "帮我找强化学习相关的论文"<br>
+                    • "最近有哪些关于视觉的研究？"<br>
+                    • "机器人方向有什么新进展？"
+                </div>
+            </div>
+
+            <div class="chat-footer">
+                <input type="text" id="chat-input" placeholder="输入关键词或学术话题...">
+                <button id="chat-send">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
